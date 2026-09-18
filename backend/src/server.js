@@ -35,11 +35,15 @@ app.get("/api/db-test", async (req, res) => {
       time: result.rows[0].now,
     });
   } catch (error) {
-    console.error(error);
+    console.error("DATABASE TEST ERROR");
+    console.error("Code:", error.code);
+    console.error("Message:", error.message);
+    console.error("Name:", error.name);
 
     res.status(500).json({
       status: "error",
       database: "not connected",
+      error: error.code || "UNKNOWN_ERROR",
     });
   }
 });
