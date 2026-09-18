@@ -41,9 +41,9 @@ app.get("/api/db-test", async (req, res) => {
     console.error("Name:", error.name);
 
     res.status(500).json({
-      status: "error",
-      database: "not connected",
-      error: error.code || "UNKNOWN_ERROR",
+    status: "error",
+    database: "not connected",
+    diagnostic: "VERSION-1668"
     });
   }
 });
