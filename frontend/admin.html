@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>لوحة الإدارة - المطالب الموحدة</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="hero">
+    <div class="container">
+
+        <h1>لوحة الإدارة</h1>
+
+        <p>
+            إدارة ومتابعة المشاركين في المبادرة
+        </p>
+
+        <button id="logoutButton" type="button">
+            تسجيل الخروج
+        </button>
+
+    </div>
+</header>
+
+
+    <main class="container">
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <h3>إجمالي المشاركين</h3>
+                <div id="totalCount">—</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>أصحاب الحقوق</h3>
+                <div id="ownersCount">—</div>
+            </div>
+
+            <div class="stat-card">
+                <h3>المتضامنون</h3>
+                <div id="supportersCount">—</div>
+            </div>
+
+        </section>
+
+
+        <section class="content-section">
+
+            <h2>قائمة المشاركين</h2>
+
+            <div id="membersMessage">
+                جارٍ تحميل البيانات...
+            </div>
+
+            <div class="table-container">
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>الاسم</th>
+                <th>المنطقة</th>
+                <th>نوع الانضمام</th>
+                <th>تاريخ الانضمام</th>
+            </tr>
+        </thead>
+
+        <tbody id="membersList">
+        </tbody>
+
+    </table>
+
+</div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+node_modules/
+.env
+backend/.env
+*.log
+.DS_Store
+mazzeh-unified-demands-output.md
+mazzeh-unified-demands-output.txt
