@@ -48,6 +48,24 @@ app.get("/api/db-test", async (req, res) => {
   }
 });
 
+
+app.get("/api/network-test", async (req, res) => {
+    try {
+        const response = await fetch("https://www.google.com");
+
+        res.json({
+            google: "ok",
+            status: response.status
+        });
+    } catch (error) {
+        res.status(500).json({
+            google: "failed",
+            error: error.message
+        });
+    }
+});
+
+
 const PORT = process.env.PORT || 3000;
 
 
