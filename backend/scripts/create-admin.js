@@ -47,7 +47,6 @@ async function createAdmin() {
 
     } finally {
         rl.close();
-        await pool.end();
     }
 }
 
