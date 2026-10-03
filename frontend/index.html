@@ -7,6 +7,8 @@
     <title>المطالب الموحدة بشأن الاستملاك</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
@@ -123,11 +125,12 @@
                 </p>
 
 
-                <form id="joinForm">
+                <form id="joinForm" novalidate>
 
-                    <div class="form-group">
+                    <div class="form-group" data-field="fullName">
                         <label for="fullName">
                             الاسم الكامل
+                            <span class="required" aria-hidden="true">*</span>
                         </label>
 
                         <input
@@ -136,57 +139,68 @@
                             name="fullName"
                             required
                             maxlength="100"
+                            autocomplete="name"
                             placeholder="أدخل الاسم الكامل"
                         >
+                        <span class="field-error" id="fullNameError" role="alert"></span>
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="form-group" data-field="phone">
                         <label for="phone">
                             رقم الهاتف
+                            <span class="required" aria-hidden="true">*</span>
                         </label>
+                        <span class="form-hint">10 أرقام — مثال: 09XXXXXXXX</span>
 
                         <input
                             type="tel"
                             id="phone"
                             name="phone"
                             required
-                            maxlength="30"
-                            placeholder="أدخل رقم الهاتف"
+                            inputmode="numeric"
+                            maxlength="14"
+                            autocomplete="tel"
+                            placeholder="09XXXXXXXX"
                         >
+                        <span class="field-error" id="phoneError" role="alert"></span>
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="form-group" data-field="area">
                         <label for="area">
                             المنطقة / الحي
+                            <span class="required" aria-hidden="true">*</span>
                         </label>
 
                         <input
                             type="text"
                             id="area"
                             name="area"
+                            required
                             maxlength="100"
-                            placeholder="مثال: معضمية الشام"
+                            placeholder="مثال: معضمية الشام — حي ..."
                         >
+                        <span class="field-error" id="areaError" role="alert"></span>
                     </div>
 
 
-                    <div class="form-group">
-                    <label for="memberType">
-                        نوع الانضمام
-                    </label>
+                    <div class="form-group" data-field="memberType">
+                        <label for="memberType">
+                            نوع الانضمام
+                            <span class="required" aria-hidden="true">*</span>
+                        </label>
 
-                    <select id="memberType" name="memberType" required>
-                        <option value="">اختر نوع الانضمام</option>
-                        <option value="owner">صاحب حق</option>
-                        <option value="supporter">متضامن</option>
-                    </select>
-                </div>
+                        <select id="memberType" name="memberType" required>
+                            <option value="">اختر نوع الانضمام</option>
+                            <option value="owner">صاحب حق</option>
+                            <option value="supporter">متضامن</option>
+                        </select>
+                        <span class="field-error" id="memberTypeError" role="alert"></span>
+                    </div>
 
 
-                    <div class="consent-box">
-
+                    <div class="consent-box" data-field="consent">
                         <input
                             type="checkbox"
                             id="consent"
@@ -197,8 +211,10 @@
                         <label for="consent">
                             أوافق على الميثاق والمطالب الموحدة للمبادرة،
                             وأرغب في الانضمام إليها بصورة سلمية وقانونية.
+                            <span class="required" aria-hidden="true">*</span>
                         </label>
 
+                        <span class="field-error" id="consentError" role="alert"></span>
                     </div>
 
 

@@ -46,10 +46,16 @@ router.post("/", async (req, res) => {
         const normalizedPhone = normalizePhone(phone);
 
         // التحقق الأساسي
-        if (!fullName || !phone || !memberType || agreed !== true) {
+        if (
+            !fullName?.trim() ||
+            !phone?.trim() ||
+            !area?.trim() ||
+            !memberType ||
+            agreed !== true
+        ) {
             return res.status(400).json({
                 status: "error",
-                message: "البيانات المطلوبة غير مكتملة"
+                message: "يرجى تعبئة جميع الحقول والموافقة على الميثاق"
             });
         }
 
@@ -72,11 +78,18 @@ router.post("/", async (req, res) => {
         }
 
 
-        // التحقق من رقم الهاتف
-        if (normalizedPhone.length < 7) {
+        // التحقق من رقم الهاتف (10 أرقام بعد التوحيد)
+        if (!/^\d{10}$/.test(normalizedPhone)) {
             return res.status(400).json({
                 status: "error",
-                message: "رقم الهاتف غير صالح"
+                message: "رقم الهاتف يجب أن يكون 10 أرقام (مثال: 09XXXXXXXX)"
+            });
+        }
+
+        if (area.trim().length < 2) {
+            return res.status(400).json({
+                status: "error",
+                message: "المنطقة / الحي غير صالح"
             });
         }
 
